@@ -1,0 +1,29 @@
+import React from 'react';
+import {Categories, PizzaCard, SortPopup} from '../components';
+
+function Home({pizzas}) {
+
+
+
+  return (
+    <div className="container">
+      <div className="content__top">
+        <Categories
+          onClickItem={(name) => console.log(name)}
+          items={['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']}
+        />
+        <SortPopup items={[
+            {name: 'популярности', type: 'popular'},
+            {name: 'цене', type: 'price'},
+            {name: 'алфавит', type: 'alphabet'}
+            ]} />
+      </div>
+      <h2 className="content__title">Все пиццы</h2>
+      <div className="content__items">
+          {pizzas.map(pizza => <PizzaCard key = {pizza.id} {...pizza}/>)}
+      </div>
+    </div>
+  );
+}
+
+export default Home;
