@@ -9,6 +9,8 @@ import {Provider} from 'react-redux';
 ReactDOM.render(
 
     <Router>
+        {// передаем информацию store из redux в компонент app. Любой компонент в app может получить информацию из store
+        }
       <Provider store={store}>
           <App />
       </Provider>

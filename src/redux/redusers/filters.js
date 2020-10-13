@@ -1,7 +1,7 @@
 
 //изначальное состояние. Данные до первого изменения будут такими
 const initialState = {
-    category: 0,
+    category: null,
     sortBy: 'popular',
 }
 

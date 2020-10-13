@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 
-export default function PizzaCard({category, imageUrl, name, price, rating, types, sizes}) {
+export default function PizzaCard({imageUrl, name, price, types, sizes}) {
 
     const availableTypes = ['тонкое', 'традиционное'];
     const availableSizes = [26, 30, 40]
     const [activeType, setActiveType] = React.useState(types[0])
-    const [activeSize, setActiveSize] = React.useState(sizes[0])
+    const [activeSize, setActiveSize] = React.useState(0)
 
     const onSelectType = (idx) => {
         setActiveType(idx)
@@ -18,8 +18,10 @@ export default function PizzaCard({category, imageUrl, name, price, rating, type
     }
 
 
-    return (
 
+
+
+    return (
         <div className="pizza-block">
             <img
                 className="pizza-block__image"
@@ -55,7 +57,7 @@ export default function PizzaCard({category, imageUrl, name, price, rating, type
             </div>
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {price} ₽</div>
-                <div className="button button--outline button--add">
+                <div onClick={() =>console.log(availableTypes[activeType], availableSizes[activeSize], name, price, imageUrl)} className="button button--outline button--add">
                     <svg
                         width="12"
                         height="12"
@@ -68,7 +70,6 @@ export default function PizzaCard({category, imageUrl, name, price, rating, type
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>2</i>
                 </div>
             </div>
         </div>
